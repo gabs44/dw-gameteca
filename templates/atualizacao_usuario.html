@@ -8,9 +8,7 @@
     <label> E-mail: </label>
     {{ form.email }}
 
-    <label> Senha: </label>
-    {{ form.password }}
-
-    <button type="submit"> Cadastrar </button>
+    <button type="submit"> Atualizar </button>
 </form>
+<a href="{% url 'editar-senha' %}">Editar senha</a>
 {% endblock %}
