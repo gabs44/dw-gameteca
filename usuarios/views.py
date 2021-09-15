@@ -12,7 +12,7 @@ def cadastra_usuario(request):
 
     if formulario.is_valid():
         formulario.save()
-        return redirect('cadastro-usuario')
+        return redirect('index')
 
     return render(request, 'cadastro_usuario.html', dados)
 
@@ -23,7 +23,7 @@ def atualiza_usuario(request):
 
     if formulario.is_valid():
         formulario.save()
-        return redirect('cadastro-usuario')
+        return redirect('index')
     return render(request, 'atualizacao_usuario.html', dados)
 
 
@@ -48,11 +48,9 @@ def login_usuario(request):
             return redirect('login')
         login(request, authenticated_user)
         return redirect('index')
-    if request.user:
-        print(request.user)
     return render(request, 'login.html')
 
 
 def logout_usuario(request):
     logout(request)
-    return redirect('login')
+    return redirect('index')
