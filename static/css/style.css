@@ -1,5 +1,5 @@
 .dw-container{
-    height: 14em;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,4 +17,11 @@
 
 .dw-form input {
     margin-bottom: 5px;
+}
+
+.dw-checkbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }

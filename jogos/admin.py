@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import Genero, Plataforma, Endereco, Desenvolvedor, Jogo
 
-# Register your models here.
+
+admin.site.register((Genero, Plataforma, Endereco, Desenvolvedor, Jogo))
