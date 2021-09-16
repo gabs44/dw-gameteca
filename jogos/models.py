@@ -36,7 +36,7 @@ class Jogo(models.Model):
     enredo = models.TextField()
     critica = models.TextField()
     avaliacao = models.IntegerField()
-    capa = models.FileField(upload_to='imagens')
+    capa = models.ImageField(upload_to='imagens')
     desenvolvedores = models.ManyToManyField(Desenvolvedor, related_name='desenvolvedores')
 
     def __str__(self):

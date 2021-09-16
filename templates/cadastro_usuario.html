@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <form method="post" class="dw-form">
+    <h3>Novo Usuário</h3>
     {% csrf_token %}
     <label> Nome: </label>
     {{ form.username }}

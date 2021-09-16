@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <form method="post">
+    <h3>Modificar senha</h3>
     {% csrf_token %}
     {{ form }}
     <button type="submit">Alterar senha</button>

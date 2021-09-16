@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="post" class="dw-form" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h3>Editar Jogo</h3>
+    <label for="nome">Nome</label>
+    <input type="text" name="nome" id="nome" value="{{jogo.nome}}"/>
+
+    <label for="lancamento">Data de Lançamento</label>
+    <input type="date" name="lancamento" id="lancamento" value="{{lancamento}}"/>
+
+    <label for="capa">Capa</label>
+    <input type="file" name="capa" id="capa"/>
+
+    <label for="enredo">Enredo</label>
+    <textarea name="enredo" id="enredo">{{jogo.enredo}}</textarea>
+
+    <label for="critica">Crítica</label>
+    <textarea name="critica" id="critica">{{jogo.critica}}</textarea>
+
+    <p>Avaliação</p>
+    <div class="dw-checkbox">
+        {% for nota in notas %}
+        <div>
+            {% if nota == jogo.avaliacao %}
+            <input type="radio" id="{{nota}}" name="avaliacao" value="{{nota}}" checked>
+            {% else %}
+            <input type="radio" id="{{nota}}" name="avaliacao" value="{{nota}}">
+            {% endif %}
+            <label for="{{nota}}">{{nota}}</label>
+        </div>
+        {% endfor %}
+    </div>
+
+     <p>Gêneros</p>
+    <div class="dw-checkbox">
+        {% for genero in generos %}
+            <div>
+                <label for="{{ genero.id }}">{{ genero.nome }}</label>
+                {% if genero in generos_marcados %}
+                    <input type="checkbox" id="{{ genero.id }}" name="{{ genero.nome }}" value="{{ genero.id }}" checked>
+                {% else %}
+                    <input type="checkbox" id="{{ genero.id }}" name="{{ genero.nome }}" value="{{ genero.id }}">
+                {% endif %}
+
+            </div>
+        {% endfor %}
+    </div>
+
+    <p>Plataformas</p>
+    <div class="dw-checkbox">
+        {% for plataforma in plataformas %}
+            <div>
+                <label for="{{ plataforma.id }}">{{ plataforma.nome }}</label>
+                {% if plataforma in plataformas_marcados %}
+                    <input type="checkbox" id="{{ plataforma.id }}" name="{{ plataforma.nome }}" value="{{ plataforma.id }}" checked>
+                {% else %}
+                    <input type="checkbox" id="{{ plataforma.id }}" name="{{ plataforma.nome }}" value="{{ plataforma.id }}">
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+    <p>Desenvolvedores</p>
+    <div class="dw-checkbox">
+        {% for desenvolvedor in desenvolvedores %}
+            <div>
+                <label for="{{ desenvolvedor.id }}">{{ desenvolvedor.nome }}</label>
+                {% if desenvolvedor in desenvolvedores_marcados %}
+                    <input type="checkbox" id="{{ desenvolvedor.id }}" name="{{ desenvolvedor.nome }}" value="{{ desenvolvedor.id }}" checked>
+                {% else %}
+                    <input type="checkbox" id="{{ desenvolvedor.id }}" name="{{ desenvolvedor.nome }}" value="{{ desenvolvedor.id }}">
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+    <button type="submit"> Atualizar </button>
+</form>
+{% endblock %}

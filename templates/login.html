@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <form method="post" class="dw-form">
+    <h3>Login</h3>
     {% csrf_token %}
     <label for="email">Email:</label>
     <input type="email" name="Email" id="email"/>

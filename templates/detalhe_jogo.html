@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    <h3>{{ jogo.nome }}</h3>
+    <img src="{{ jogo.capa.url }}" alt="Capa do jogo {{ jogo.nome }}" height="300" />
+    <p>Nota: {{ jogo.avaliacao }}</p>
+    <p>Lançamento: {{ jogo.lancamento }}</p>
+
+    <p><span>Enredo: {{ jogo.enredo }}</span></p>
+    <p></p>
+
+    <p><span>Crítica:</span> {{ jogo.critica }}</p>
+
+    <p>Gênero(s)</p>
+    <ul>
+    {% for genero in jogo.generos.all %}
+        <li>{{ genero.nome }}</li>
+    {% endfor %}
+    </ul>
+    <p>Plataforma(s)</p>
+    <ul>
+    {% for plataforma in jogo.plataformas.all %}
+        <li>{{ plataforma.nome }}</li>
+    {% endfor %}
+    </ul>
+    <p>Desenvolvedor(es)</p>
+    <ul>
+    {% for desenvolvedor in jogo.desenvolvedores.all %}
+        <li>{{ desenvolvedor.nome }}</li>
+    {% endfor %}
+    </ul>
+</div>
+{% if user == jogo.dono %}
+<div>
+    <a href="{% url 'atualizacao-jogo' jogo.id %}">Editar</a>
+    <a href="{% url 'remove-jogo' jogo.id %}">Remover</a>
+</div>
+{% endif %}
+{% endblock %}

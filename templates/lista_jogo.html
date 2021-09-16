@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="dw-header">
+  <h3>Listagem de jogos</h3>
+  <a href="{% url 'cadastro-jogo' %}"><button>Cadastrar novo jogo</button></a>
+</div>
+<div class="dw-list">
+  {% for jogo in jogos %}
+    <div>
+      <div>
+        <img src="{{jogo.capa.url}}" alt="Capa do jogo {{jogo.nome}}" height="200"/>
+      </div>
+      <p><a href="{% url 'detalhe-jogo' jogo.id %}">{{jogo.nome}}</a></p>
+      <p>Nota {{ jogo.avaliacao }}</p>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

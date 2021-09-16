@@ -19,12 +19,12 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="">Jogos</a>
+                <a class="nav-link" href="{% url 'index' %}">Home</a>
               </li>
               {% if user.is_authenticated %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'listagem-jogo' %}">Jogos</a>
+                </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'atualizacao-usuario' %}">Minha conta</a>
                 </li>
@@ -41,10 +41,6 @@
               {% endif %}
 
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
             </div>
         </nav>
     </header>
@@ -74,13 +70,21 @@
           <h6 class="text-uppercase fw-bold mb-4">
             Contact
           </h6>
-          <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+          <p><i class="fas fa-home me-3"></i> Cajazeiras - PB</p>
           <p>
             <i class="fas fa-envelope me-3"></i>
-            info@example.com
+            gabriella.gomes@academico.ifpb.edu.br
           </p>
-          <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-          <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            lara.kauanny@academico.ifpb.edu.br
+          </p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            andressa.gomes@academico.ifpb.edu.br
+          </p>
+
+
         </div>
         <!-- Grid column -->
       </div>
