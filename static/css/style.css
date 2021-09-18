@@ -1,5 +1,5 @@
 .dw-container{
-    min-height: 15.2em;
+    min-height: 19em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,11 +7,10 @@
 }
 
 .dw-header{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    margin-bottom: 20px;
+
 }
+
 
 .dw-container p {
     font-size: larger;
